@@ -1,0 +1,144 @@
+#! /usr/local/bin/vvp
+:ivl_version "10.1 (stable)" "(v10_1-107-gab6ae79)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x23f6320 .scope module, "behavioralMultiplexer" "behavioralMultiplexer" 2 3;
+ .timescale -9 -12;
+    .port_info 0 /OUTPUT 1 "out"
+    .port_info 1 /INPUT 1 "address0"
+    .port_info 2 /INPUT 1 "address1"
+    .port_info 3 /INPUT 1 "in0"
+    .port_info 4 /INPUT 1 "in1"
+    .port_info 5 /INPUT 1 "in2"
+    .port_info 6 /INPUT 1 "in3"
+v0x2408540_0 .net "address", 1 0, L_0x2439720;  1 drivers
+o0x7fc7c7544048 .functor BUFZ 1, C4<z>; HiZ drive
+v0x24376d0_0 .net "address0", 0 0, o0x7fc7c7544048;  0 drivers
+o0x7fc7c7544078 .functor BUFZ 1, C4<z>; HiZ drive
+v0x2437790_0 .net "address1", 0 0, o0x7fc7c7544078;  0 drivers
+o0x7fc7c75440a8 .functor BUFZ 1, C4<z>; HiZ drive
+v0x2437860_0 .net "in0", 0 0, o0x7fc7c75440a8;  0 drivers
+o0x7fc7c75440d8 .functor BUFZ 1, C4<z>; HiZ drive
+v0x2437920_0 .net "in1", 0 0, o0x7fc7c75440d8;  0 drivers
+o0x7fc7c7544108 .functor BUFZ 1, C4<z>; HiZ drive
+v0x2437a30_0 .net "in2", 0 0, o0x7fc7c7544108;  0 drivers
+o0x7fc7c7544138 .functor BUFZ 1, C4<z>; HiZ drive
+v0x2437af0_0 .net "in3", 0 0, o0x7fc7c7544138;  0 drivers
+v0x2437bb0_0 .net "inputs", 3 0, L_0x2439560;  1 drivers
+v0x2437c90_0 .net "out", 0 0, L_0x2439850;  1 drivers
+L_0x2439560 .concat [ 1 1 1 1], o0x7fc7c75440a8, o0x7fc7c75440d8, o0x7fc7c7544108, o0x7fc7c7544138;
+L_0x2439720 .concat [ 1 1 0 0], o0x7fc7c7544078, o0x7fc7c7544048;
+L_0x2439850 .part/v L_0x2439560, L_0x2439720, 1;
+S_0x23f6140 .scope module, "testMultiplexer" "testMultiplexer" 3 4;
+ .timescale -9 -12;
+v0x2438d90_0 .var "address0", 0 0;
+v0x2438e50_0 .var "address1", 0 0;
+v0x2438f20_0 .var "in0", 0 0;
+v0x2439020_0 .var "in1", 0 0;
+v0x24390f0_0 .var "in2", 0 0;
+v0x2439190_0 .var "in3", 0 0;
+v0x2439260_0 .net "nAd0", 0 0, L_0x2439970;  1 drivers
+v0x2439330_0 .net "nAd1", 0 0, L_0x2439a80;  1 drivers
+v0x2439400_0 .net "out", 0 0, L_0x243a030;  1 drivers
+S_0x2437f00 .scope module, "dut" "structuralMultiplexer" 3 9, 2 16 0, S_0x23f6140;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "address0"
+    .port_info 1 /INPUT 1 "address1"
+    .port_info 2 /INPUT 1 "in0"
+    .port_info 3 /INPUT 1 "in1"
+    .port_info 4 /INPUT 1 "in2"
+    .port_info 5 /INPUT 1 "in3"
+    .port_info 6 /OUTPUT 1 "nAd0"
+    .port_info 7 /OUTPUT 1 "nAd1"
+    .port_info 8 /OUTPUT 1 "out"
+L_0x2439970 .functor NOT 1, v0x2438d90_0, C4<0>, C4<0>, C4<0>;
+L_0x2439a80 .functor NOT 1, v0x2438e50_0, C4<0>, C4<0>, C4<0>;
+L_0x2439b90 .functor AND 1, v0x2438f20_0, L_0x2439970, L_0x2439a80, C4<1>;
+L_0x2439c50 .functor AND 1, v0x2439020_0, L_0x2439970, v0x2438e50_0, C4<1>;
+L_0x2439da0 .functor AND 1, v0x24390f0_0, L_0x2439a80, v0x2438d90_0, C4<1>;
+L_0x2439ea0 .functor AND 1, v0x2439190_0, v0x2438d90_0, v0x2438e50_0, C4<1>;
+L_0x243a030 .functor OR 1, L_0x2439b90, L_0x2439c50, L_0x2439da0, L_0x2439ea0;
+v0x24381d0_0 .net "address0", 0 0, v0x2438d90_0;  1 drivers
+v0x24382b0_0 .net "address1", 0 0, v0x2438e50_0;  1 drivers
+v0x2438370_0 .net "in0", 0 0, v0x2438f20_0;  1 drivers
+v0x2438410_0 .net "in1", 0 0, v0x2439020_0;  1 drivers
+v0x24384d0_0 .net "in2", 0 0, v0x24390f0_0;  1 drivers
+v0x24385e0_0 .net "in3", 0 0, v0x2439190_0;  1 drivers
+v0x24386a0_0 .net "nAd0", 0 0, L_0x2439970;  alias, 1 drivers
+v0x2438760_0 .net "nAd1", 0 0, L_0x2439a80;  alias, 1 drivers
+v0x2438820_0 .net "out", 0 0, L_0x243a030;  alias, 1 drivers
+v0x2438970_0 .net "wA", 0 0, L_0x2439b90;  1 drivers
+v0x2438a30_0 .net "wB", 0 0, L_0x2439c50;  1 drivers
+v0x2438af0_0 .net "wC", 0 0, L_0x2439da0;  1 drivers
+v0x2438bb0_0 .net "wD", 0 0, L_0x2439ea0;  1 drivers
+    .scope S_0x23f6140;
+T_0 ;
+    %vpi_call 3 12 "$display", "A0 | A1 | In0 | In1 | In2 | In3 | Out| Expected Output" {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x2438d90_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x2438e50_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x2438f20_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x2439020_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x24390f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x2439190_0, 0, 1;
+    %delay 50000, 0;
+    %vpi_call 3 14 "$display", "%b  | %b  | %b   | %b   | %b   | %b   | %b | In0", v0x2438d90_0, v0x2438e50_0, v0x2438f20_0, v0x2439020_0, v0x24390f0_0, v0x2439190_0, v0x2439400_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x2438d90_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x2438e50_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x2438f20_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x2439020_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x24390f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x2439190_0, 0, 1;
+    %delay 50000, 0;
+    %vpi_call 3 16 "$display", "%b  | %b  | %b   | %b   | %b   | %b   | %b | In1", v0x2438d90_0, v0x2438e50_0, v0x2438f20_0, v0x2439020_0, v0x24390f0_0, v0x2439190_0, v0x2439400_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x2438d90_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x2438e50_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x2438f20_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x2439020_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x24390f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x2439190_0, 0, 1;
+    %delay 50000, 0;
+    %vpi_call 3 18 "$display", "%b  | %b  | %b   | %b   | %b   | %b   | %b | In2", v0x2438d90_0, v0x2438e50_0, v0x2438f20_0, v0x2439020_0, v0x24390f0_0, v0x2439190_0, v0x2439400_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x2438d90_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x2438e50_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x2438f20_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x2439020_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x24390f0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x2439190_0, 0, 1;
+    %delay 50000, 0;
+    %vpi_call 3 20 "$display", "%b  | %b  | %b   | %b   | %b   | %b   | %b | In3", v0x2438d90_0, v0x2438e50_0, v0x2438f20_0, v0x2439020_0, v0x24390f0_0, v0x2439190_0, v0x2439400_0 {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "./multiplexer.v";
+    "multiplexer.t.v";

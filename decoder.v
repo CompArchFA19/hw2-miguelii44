@@ -17,6 +17,15 @@ module structuralDecoder
     input address0, address1,
     input enable
 );
-    // Your decoder code here
+
+	wire nAd0;
+	wire nAd1;
+	not Ainv(nAd0, address0);
+	not Binv(nAd1, address0);
+	and out0(out0, nAd0, nAd, enable);
+	and out1(out1, address0, nAd1, enable);
+	and out2(out2, nAd0, address1, enable);
+	and out3(out3, address0, address1, enable);
+
 endmodule
 

@@ -20,5 +20,17 @@ module structuralFullAdder
     input b, 
     input carryin
 );
-    // Your adder code here
+   
+    wire c, d, e;
+	xor ABxor(c, a, b);
+	xor sumxor(sum, c, carryin);
+	and carryand(d, c, carryin);
+	and ABand(e, a, b);
+	or carryoutor(carryout, d, e);
+
+initial begin
+$dumpfile("<adder>.vcd");
+$dumpvars();
+$finish():
+
 endmodule

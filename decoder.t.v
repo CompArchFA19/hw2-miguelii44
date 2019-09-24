@@ -1,14 +1,13 @@
 // Decoder testbench
-`timescale 1 ns / 1 ps
 `include "decoder.v"
 
-module testDecoder (); 
+module testDecoder ();
+    reg enable; 
     reg addr0, addr1;
-    reg enable;
     wire out0,out1,out2,out3;
 
-    behavioralDecoder decoder (out0,out1,out2,out3,addr0,addr1,enable);
-    //structuralDecoder decoder (out0,out1,out2,out3,addr0,addr1,enable); // Swap after testing
+    //behavioralDecoder decoder (out0,out1,out2,out3,addr0,addr1,enable);
+    structuralDecoder decoder (out0,out1,out2,out3,enable, addr0,addr1); // Swap after testing
 
     initial begin
     $display("En A0 A1| O0 O1 O2 O3 | Expected Output");
