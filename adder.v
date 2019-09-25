@@ -28,9 +28,4 @@ module structuralFullAdder
 	and ABand(e, a, b);
 	or carryoutor(carryout, d, e);
 
-initial begin
-$dumpfile("<adder>.vcd");
-$dumpvars();
-$finish():
-
 endmodule

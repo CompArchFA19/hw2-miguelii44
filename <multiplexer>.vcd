@@ -1,0 +1,97 @@
+$date
+	Tue Sep 24 16:35:50 2019
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module behavioralMultiplexer $end
+$var wire 1 ! address0 $end
+$var wire 1 " address1 $end
+$var wire 1 # in0 $end
+$var wire 1 $ in1 $end
+$var wire 1 % in2 $end
+$var wire 1 & in3 $end
+$var wire 1 ' out $end
+$var wire 4 ( inputs [3:0] $end
+$var wire 2 ) address [1:0] $end
+$upscope $end
+$scope module testMultiplexer $end
+$var wire 1 * out $end
+$var wire 1 + nAd1 $end
+$var wire 1 , nAd0 $end
+$var reg 1 - address0 $end
+$var reg 1 . address1 $end
+$var reg 1 / in0 $end
+$var reg 1 0 in1 $end
+$var reg 1 1 in2 $end
+$var reg 1 2 in3 $end
+$scope module dut $end
+$var wire 1 - address0 $end
+$var wire 1 . address1 $end
+$var wire 1 / in0 $end
+$var wire 1 0 in1 $end
+$var wire 1 1 in2 $end
+$var wire 1 2 in3 $end
+$var wire 1 , nAd0 $end
+$var wire 1 + nAd1 $end
+$var wire 1 * out $end
+$var wire 1 3 wA $end
+$var wire 1 4 wB $end
+$var wire 1 5 wC $end
+$var wire 1 6 wD $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+06
+05
+04
+13
+02
+01
+00
+1/
+0.
+0-
+1,
+1+
+1*
+bz )
+bz (
+x'
+z&
+z%
+z$
+z#
+z"
+z!
+$end
+#50000
+03
+0+
+14
+10
+0/
+1.
+#100000
+15
+1*
+1+
+04
+0,
+11
+00
+0.
+1-
+#150000
+05
+0+
+16
+12
+01
+1.
+#200000
